@@ -1,0 +1,20 @@
+name: 'CHANGE ME'
+description: 'CHANGE ME'
+author: 'CHANGE ME'
+branding:
+  icon: box
+  color: blue
+
+inputs:
+  token:
+    description: 'A GitHub access token'
+    required: true
+    default: '${{ github.token }}'
+  __matrix:
+    description: 'DO NOT SET MANUALLY - Current matrix properties'
+    default: '${{ toJSON(matrix) }}'
+
+runs:
+  using: 'node20'
+  pre: 'dist/index.js'
+  main: 'main.js'
