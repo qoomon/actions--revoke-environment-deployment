@@ -31028,7 +31028,7 @@ const action = () => run(async () => {
     await octokit.rest.repos.createDeploymentStatus({
         ...context.repo,
         deployment_id: currentDeployment.id,
-        state: 'pending',
+        state: 'inactive',
         environment: currentDeployment.environment,
         environment_url: currentDeployment.environmentUrl,
         log_url: currentDeployment.logUrl,
@@ -31145,8 +31145,6 @@ async function getCurrentDeployment(octokit, context) {
     return {
         ...currentDeployment,
         databaseId: undefined,
-        latestEnvironment: undefined,
-        latestStatus: undefined,
         id: currentDeployment.databaseId,
         url: currentDeploymentUrl,
         workflowUrl: currentDeploymentWorkflowUrl,
